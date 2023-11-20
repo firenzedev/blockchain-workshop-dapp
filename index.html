@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Super Bingo bongo plus ++</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="https://unpkg.com/nes.css@2.3.0/css/nes.min.css"
+      rel="stylesheet"
+    />
+    <script type="module" src="./dapp.js"></script>
+    <script type="module" src="./app.js" defer></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Monoton&family=Press+Start+2P&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./style.css" />
+    <script src="https://cdn.jsdelivr.net/npm/js-confetti@latest/dist/js-confetti.browser.js"></script>
+  </head>
+  <body>
+    <main class="nes-container is-rounded is-dark with-title">
+      <header>
+        <h1 class="title">Bingo dApp</h1>
+      </header>
+      <section id="login">
+        <div class="nes-container is-rounded is-dark">
+          <p>Hello stranger</p>
+          <button id="login-button" class="nes-btn is-primary hidden">
+            login to play
+          </button>
+          <p class="hidden" id="install-metamask">
+            <a
+              href="https://metamask.io/"
+              target="_blank"
+              class="nes-text is-warning"
+              >Install Metamask to play</a
+            >
+          </p>
+        </div>
+      </section>
+      <section class="message-list hidden" id="user">
+        <section class="message -left">
+          <i class="nes-bcrikko"></i>
+          <div
+            class="nes-balloon from-left is-dark"
+            style="width: 100%; max-width: 420px; transform: translateY(-20px)"
+          >
+            Hello
+            <span id="account"></span>
+          </div>
+        </section>
+      </section>
+      <section class="my-7 hidden" id="controls">
+        <button id="buy-card" class="nes-btn is-primary">
+          Buy a bingo card
+        </button>
+      </section>
+      <section class="hidden" id="game">
+        <div class="nes-container is-rounded is-dark">
+          <h3>My numbers</h3>
+          <button data-type="number" class="nes-btn">5</button>
+          <button data-type="number" class="nes-btn">15</button>
+          <button data-type="number" class="nes-btn">26</button>
+          <button data-type="number" class="nes-btn">30</button>
+          <button data-type="number" class="nes-btn">41</button>
+          <button data-type="number" class="nes-btn">56</button>
+        </div>
+        <button id="collect" class="nes-btn is-primary hidden">
+          Collect your winnings
+        </button>
+      </section>
+    </main>
+    <section class="hidden" id="lost">
+      <dialog class="nes-dialog is-dark is-rounded" id="lost-dialog">
+        <form method="dialog">
+          <p class="title">🤥You cheater!👎</p>
+          🤌You didn't won!
+          <menu class="dialog-menu">
+            <button id="reset" class="nes-btn is-error">Restart</button>
+          </menu>
+        </form>
+      </dialog>
+    </section>
+
+    <div class="hidden" id="winner">
+      <section>
+        <dialog class="nes-dialog is-dark is-rounded" id="dialog-default">
+          <form method="dialog">
+            <p class="title">✨✨You Won✨✨</p>
+            <p>Check your balance on your wallet.</p>
+          </form>
+        </dialog>
+      </section>
+    </div>
+
+    <section id="loader">
+      <h2>Loading</h2>
+      <div class="loader">
+        <div class="circles">
+          <span class="one"></span>
+          <span class="two"></span>
+          <span class="three"></span>
+        </div>
+        <div class="pacman">
+          <span class="top"></span>
+          <span class="bottom"></span>
+          <span class="left"></span>
+          <div class="eye"></div>
+        </div>
+      </div>
+    </section>
+  </body>
+</html>
