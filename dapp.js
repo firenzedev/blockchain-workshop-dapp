@@ -1,12 +1,23 @@
 async function isConnected() {
-  return Promise.resolve(false);
+  if(typeof window.ethereum === "undefined") {
+    throw new Error("please install metamask");
+  }
+  return Promise.resolve(window.ethereum.isConnected());
 }
 
 async function login() {
-  return Promise.resolve("0x8626f6940E2eb28930eFb4CeF49B2d1F2C9C1199");
+  return window.ethereum.request(
+    {method: "eth_requestAccounts"}
+  ).then((account) => {
+    return account[0];
+  })
 }
 
 async function buyBingoCard() {
+
+  const provider = new ethers.providers.Web3Provider(window.ethereum)
+  const signer = provider.getSigner()
+
   return new Promise((resolve, reject) => {
     setTimeout(() => {
       resolve({
