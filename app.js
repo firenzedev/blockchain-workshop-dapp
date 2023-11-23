@@ -23,28 +23,24 @@ async function main() {
   const NUMBERS_REQUIRED = 6;
   let numbersIHave = 0;
 
-  function main() {
-    dapp
-      .isConnected()
-      .then((yes) => {
-        if (yes) {
-          hide(loginSection);
-          show(controlsSection);
-        } else {
-          show(loginButton);
-          show(loginSection);
-        }
-      })
-      .catch((err) => {
-        console.log(err);
-        show(installMetamask);
-      })
-      .finally(() => {
-        hide(loader);
-      });
-  }
-
-  main();
+  dapp
+    .isConnected()
+    .then((yes) => {
+      if (yes) {
+        hide(loginSection);
+        show(controlsSection);
+      } else {
+        show(loginButton);
+        show(loginSection);
+      }
+    })
+    .catch((err) => {
+      console.log(err);
+      show(installMetamask);
+    })
+    .finally(() => {
+      hide(loader);
+    });
 
   function loginHandler() {
     dapp.login().then((user) => {
