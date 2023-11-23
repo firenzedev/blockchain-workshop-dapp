@@ -19,7 +19,7 @@ async function buyBingoCard() {
 async function callBingo() {
   return new Promise((resolve, reject) => {
     setTimeout(() => {
-      resolve(resolve(Math.random() > 0.5));
+      resolve(true);
     }, 1000);
   });
 }
@@ -33,5 +33,5 @@ window.dapp = {
   isConnected,
   callBingo,
   login,
-  withdraw
+  withdraw,
 };
